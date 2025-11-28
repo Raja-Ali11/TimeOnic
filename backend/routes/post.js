@@ -2,14 +2,12 @@ const express = require("express");
 const router = express.Router();
 const { addPost, getPosts } = require("../controllers/postcontroller");
 const authMiddleware = require("../middleware/authMiddleware");
-const upload = require("../middleware/upload");
-const postController = require("../controllers/postcontroller");
+const upload = require("../middleware/cloudinary"); // Cloudinary Multer
 
+// Add new post with image (Cloudinary)
+router.post("/add", authMiddleware, upload.single("image"), addPost);
 
-
-
-
-router.post("/add" , authMiddleware , upload.single("image"), postController.addPost);
-router.get("/", authMiddleware, postController.getPosts);
+// Get posts of logged-in user
+router.get("/", authMiddleware, getPosts);
 
 module.exports = router;

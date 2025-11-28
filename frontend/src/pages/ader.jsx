@@ -30,16 +30,19 @@ export default function Add({ setMemories }) {
       formData.append("image", data.image[0]); // send actual file
     }
 
-    const res = await axios.post(
-      "http://localhost:5000/api/posts/add",
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    const BASE_URL = "https://timeonic.onrender.com";
+
+        const res = await axios.post(
+          `${BASE_URL}/api/posts/add`,
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
 
     alert("Post Added Successfully!");
     navigate("/dashboard");

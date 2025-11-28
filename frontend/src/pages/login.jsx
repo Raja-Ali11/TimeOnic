@@ -18,10 +18,12 @@ export default function Login() {
 
 
   const onSubmit = async (data) => {
-    try{
-        const res = await axios.post("http://localhost:5000/api/auth/signin", data
+        try {
+        const BASE_URL = "https://timeonic.onrender.com"; // deployed backend
 
-    );
+        const res = await axios.post(`${BASE_URL}/api/auth/signin`, data, {
+          headers: { "Content-Type": "application/json" },
+        });
     localStorage.setItem("token",res.data.token)
     localStorage.setItem("user",JSON.stringify(res.data.user));
 

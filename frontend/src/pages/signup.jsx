@@ -12,11 +12,11 @@ export default function Signup() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    try {
-        const res=await  axios.post("http://localhost:5000/api/auth/signup", data, {
-      headers: { "Content-Type": "application/json" }
-    });
-
+      try {
+      const BASE_URL = "https://timeonic.onrender.com"; // deployed backend
+      const res = await axios.post(`${BASE_URL}/api/auth/signup`, data, {
+        headers: { "Content-Type": "application/json" },
+      });
       
       console.log("signup success:" ,res.data)
       alert("signup successfully")

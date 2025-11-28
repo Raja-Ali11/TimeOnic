@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Modal({ isOpen, closeModal, data }) {
   if (!isOpen || !data) return null;
-
+const BASE_URL = "https://timeonic.onrender.com"; 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50 overflow-auto p-4">
       {/* Modal Container */}
@@ -21,18 +21,20 @@ export default function Modal({ isOpen, closeModal, data }) {
                     <div className="w-full relative rounded-t-3xl overflow-hidden shadow-inner  ">
                         {/* Blurred Background */}
                         <div
-                        className="absolute inset-0 bg-cover bg-center filter blur-xl scale-105"
-                        style={{ backgroundImage: `url(http://localhost:5000/uploads/${data.image})` }}
+                          className="absolute inset-0 bg-cover bg-center filter blur-xl scale-105"
+                          style={{ backgroundImage: `url(${BASE_URL}/uploads/${data.image})` }}
                         ></div>
 
+
                         {/* Centered Image */}
-                       <div className="relative flex justify-center items-center w-full h-40 sm:h-48 md:h-52">
-                        <img
-                            src={`http://localhost:5000/uploads/${data.image}`}
+                      <div className="relative flex justify-center items-center w-full h-40 sm:h-48 md:h-52">
+                          <img
+                            src={`${BASE_URL}/uploads/${data.image}`}
                             alt="post"
                             className="max-w-full max-h-full object-contain rounded-2xl shadow-lg z-10"
-                        />
+                          />
                         </div>
+
                     </div>
                     )}
 

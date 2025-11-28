@@ -13,11 +13,14 @@ const [allPosts, setAllPosts] = useState([]);
 
 useEffect(() => {
   const fetchPosts = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/posts", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+          try {
+        const BASE_URL = "https://timeonic.onrender.com"; // deployed backend
+
+        const token = localStorage.getItem("token");
+        const res = await axios.get(`${BASE_URL}/api/posts`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
       
     console.log("Raw response:", res);
     console.log("Response data:", res.data);
