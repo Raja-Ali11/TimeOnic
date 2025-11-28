@@ -170,7 +170,7 @@ const filtercards = (mood) => {
                  {/* IMAGE */}
                       {item.image && (
                         <img
-                          src={`http://localhost:5000/uploads/${item.image}`}
+                          src={item.image}
                           alt="post"
                           className="w-12 h-12 rounded-xl object-cover border shadow-sm"
                         />

@@ -18,25 +18,24 @@ const BASE_URL = "https://timeonic.onrender.com";
 
         {/* Image */}
         {data.image && (
-                    <div className="w-full relative rounded-t-3xl overflow-hidden shadow-inner  ">
-                        {/* Blurred Background */}
-                        <div
-                          className="absolute inset-0 bg-cover bg-center filter blur-xl scale-105"
-                          style={{ backgroundImage: `url(${BASE_URL}/uploads/${data.image})` }}
-                        ></div>
+          <div className="w-full relative rounded-t-3xl overflow-hidden shadow-inner">
+            {/* Blurred Background */}
+            <div
+              className="absolute inset-0 bg-cover bg-center filter blur-xl scale-105"
+              style={{ backgroundImage: `url(${data.image})` }} // direct Cloudinary URL
+            ></div>
 
+            {/* Centered Image */}
+            <div className="relative flex justify-center items-center w-full h-40 sm:h-48 md:h-52">
+              <img
+                src={data.image}  // direct Cloudinary URL
+                alt="post"
+                className="max-w-full max-h-full object-contain rounded-2xl shadow-lg z-10"
+              />
+            </div>
+          </div>
+        )}
 
-                        {/* Centered Image */}
-                      <div className="relative flex justify-center items-center w-full h-40 sm:h-48 md:h-52">
-                          <img
-                            src={`${BASE_URL}/uploads/${data.image}`}
-                            alt="post"
-                            className="max-w-full max-h-full object-contain rounded-2xl shadow-lg z-10"
-                          />
-                        </div>
-
-                    </div>
-                    )}
 
         {/* Content */}
         <div className="p-4 flex flex-col gap-1 overflow-y-auto max-h-[calc(120vh-16rem)]">
